@@ -1,6 +1,5 @@
 const getUniqueIPs = require('./getUniqueIps');
-const getMostVisitedUrls = require('./getMostVisitedUrls');
-const getMostActiveIP = require('./getMostActiveIps');
+const getMostOccourances = require('./getMostOccourances');
 
 /**
  * Function that gets the stats and logs them to the console
@@ -12,10 +11,10 @@ function getStats(data) {
   const uniqueIPs = getUniqueIPs(data);
 
   // Get the 3 most visited URLs
-  const mostVisitedUrls = getMostVisitedUrls(data, 3);
+  const mostVisitedUrls = getMostOccourances(data, 'web', 3);
 
   // Get the most active IP address
-  const mostActiveIP = getMostActiveIP(data, 3);
+  const mostActiveIP = getMostOccourances(data, 'ip', 3);
 
   console.log(`There were ${uniqueIPs} unique IP addresses`);
   console.log(`The most visited URLs were:`);
